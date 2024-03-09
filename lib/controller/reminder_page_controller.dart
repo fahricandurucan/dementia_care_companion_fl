@@ -1,10 +1,27 @@
 import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../models/reminder.dart';
 import '../notification/notification_service.dart';
 
 class ReminderPageController extends GetxController {
+  final Rx<TextEditingController> medicineNameController = TextEditingController().obs;
+  final Rx<TextEditingController> timeController = TextEditingController().obs;
+
+  final List<String> medicationIntervals = [
+    '2 Saatte 1',
+    '3 Saatte 1',
+    '4 Saatte 1',
+    // Add other medication intervals here
+  ];
+
+  // Tüm alanları sıfırla
+  void clearFields() {
+    medicineNameController.value.clear();
+    timeController.value.clear();
+  }
+
   Future<void> sendNotification() async {
     return await NotificationService.showNotification(
       title: "Demantia Care Companion",

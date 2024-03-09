@@ -1,3 +1,4 @@
+import 'package:dementia_care_companion_fl/screens/communicate_page.dart';
 import 'package:dementia_care_companion_fl/screens/menu_page.dart';
 import 'package:dementia_care_companion_fl/screens/reminder_page.dart';
 import 'package:dementia_care_companion_fl/utils/app_colors.dart';
@@ -34,13 +35,17 @@ class Homepage extends StatelessWidget {
             children: [
               GestureDetector(
                   onTap: () {
-                    Get.to(ReminderPage());
+                    Get.to(const ReminderPage());
                   },
                   child: circularWidget("Hatırlatıcı")),
               const SizedBox(
                 width: 16,
               ),
-              circularWidget("İletişim")
+              GestureDetector(
+                  onTap: () {
+                    Get.to(const CommunicatePage());
+                  },
+                  child: circularWidget("İletişim"))
             ],
           ),
         ],
